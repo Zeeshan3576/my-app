@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-sans: "Space Grotesk", "Helvetica Neue", sans-serif;
+  --font-display: "Fraunces", "Times New Roman", serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #f6f4ef;
+}
+
+.app-shell {
+  position: relative;
+  background: radial-gradient(120% 80% at 50% 0%, #fff2d8 0%, #f9fbff 45%, #f6f4ef 80%);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.card {
+  border-radius: 1.25rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 20px 40px -30px rgba(15, 23, 42, 0.6);
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.5rem 1.25rem;
+  background: #0f172a;
+  color: #f8fafc;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px -16px rgba(15, 23, 42, 0.9);
+}
+
+.primary-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.secondary-button {
+  border-radius: 999px;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: transparent;
+  color: #0f172a;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.secondary-button:hover {
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.cart-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 999px;
+  padding: 0.5rem 1.25rem;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 16px 30px -20px rgba(15, 23, 42, 0.6);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.cart-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #f8fafc;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.view-toggle {
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #94a3b8;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.view-toggle.active {
+  background: rgba(15, 23, 42, 0.08);
+  color: #0f172a;
+}
+
+.quantity-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  padding: 0.35rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.quantity-control button {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.08);
+  font-weight: 700;
+}
+
+.quantity-control.compact {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+}
+
+.quantity-control.compact button {
+  width: 20px;
+  height: 20px;
+}
+
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.cart-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(90vw, 380px);
+  background: #ffffff;
+  box-shadow: -20px 0 40px -30px rgba(15, 23, 42, 0.6);
+  transform: translateX(110%);
+  transition: transform 0.25s ease;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+}
+
+.cart-drawer.open {
+  transform: translateX(0);
+}
+
+.cart-line {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 0.75rem;
+  background: #f8fafc;
+}
+
+.fade-up {
+  animation: fade-up 0.5s ease both;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

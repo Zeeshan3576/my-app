@@ -1,12 +1,10 @@
 import './App.css'
-import { Button } from './components/ui/button'
+import Cart from './components/cart/cart'
 
 function App() {
-  
-
   return (
     <>
-      <Button>click me</Button>
+      <Cart />
     </>
   )
 }
